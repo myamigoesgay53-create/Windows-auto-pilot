@@ -1,80 +1,80 @@
 # Windows AI Autopilot (Python + OpenAI)
 
-App de escritorio para Windows que recibe una tarea en texto y usa OpenAI para ejecutar acciones reales en el PC:
+Windows desktop app that receives a text task and uses OpenAI to perform real actions on your PC:
 
-- control de raton y teclado mediante Computer Use
-- navegacion web
-- herramientas locales para leer/buscar/escribir archivos
+- mouse and keyboard control through Computer Use
+- web browsing
+- local tools to read/search/write files
 
-## Importante
+## Important
 
-- Usa esta app solo en un entorno que controles.
-- Empieza con tareas de bajo riesgo.
-- La automatizacion de interfaz puede cometer errores.
-- En **modo seguro** (activado por defecto) se bloquea escritura fuera de la carpeta del proyecto y se frena cuando la API solicita safety checks.
+- Use this app only in an environment you control.
+- Start with low-risk tasks.
+- UI automation can make mistakes.
+- In **safe mode** (enabled by default), writing outside the project folder is blocked and execution pauses when the API requests safety checks.
 
-## Requisitos
+## Requirements
 
 - Windows 10/11
-- Python 3.10 o superior (recomendado 3.10-3.13; 3.14 puede requerir dependencias aun en actualizacion)
+- Python 3.10 or newer (3.10-3.13 recommended; 3.14 may require dependencies still catching up)
 
-## Instalacion
+## Installation
 
-1. Abre PowerShell en esta carpeta.
-2. Crea y activa entorno virtual:
+1. Open PowerShell in this folder.
+2. Create and activate a virtual environment:
 
 ```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 ```
 
-3. Instala dependencias:
+3. Install dependencies:
 
 ```powershell
 pip install -r requirements.txt
 ```
 
-4. Configura la API key (opcional por `.env`):
+4. Set up your API key (optional via `.env`):
 
 ```powershell
 Copy-Item .env.example .env
 ```
 
-Luego edita `.env` y pega tu clave en `OPENAI_API_KEY`.
+Then edit `.env` and paste your key into `OPENAI_API_KEY`.
 
-## Ejecutar
+## Run
 
 ```powershell
 python main.py
 ```
 
-O con doble clic/terminal:
+Or with double-click/terminal:
 
 ```powershell
 run_app.bat
 ```
 
-## Uso rapido
+## Quick Start
 
-1. Pon tu API key (o usa `.env`).
-2. Escribe la tarea en texto.
-3. Pulsa **Iniciar Autopiloto**.
-4. Si necesitas parar, usa **Parar**.
-5. Parada de emergencia adicional: mueve el raton a la esquina superior izquierda (FailSafe de PyAutoGUI).
+1. Enter your API key (or use `.env`).
+2. Write the task in plain text.
+3. Click **Start Autopilot**.
+4. If you need to stop, click **Stop**.
+5. Extra emergency stop: move the mouse to the top-left corner (PyAutoGUI FailSafe).
 
-Si venias de una instalacion anterior, actualiza dependencias:
+If you already had a previous install, update dependencies:
 
 ```powershell
 pip install -U -r requirements.txt
 ```
 
-## Ejemplos de tarea
+## Example Tasks
 
-- "Abre el navegador, busca tres opciones de coworking en Madrid centro, compara precio y guarda resumen en `resultado.txt`."
-- "Busca en mi carpeta `Documentos` archivos que contengan `factura` en el nombre y listalos."
+- "Open the browser, find three coworking options in central Madrid, compare prices, and save a summary in `resultado.txt`."
+- "Search my `Documents` folder for files containing `factura` in the name and list them."
 
-## Estructura
+## Structure
 
-- `main.py`: interfaz y motor del agente.
-- `requirements.txt`: dependencias.
-- `.env.example`: plantilla de variables de entorno.
+- `main.py`: UI and agent runtime.
+- `requirements.txt`: dependencies.
+- `.env.example`: environment variable template.
